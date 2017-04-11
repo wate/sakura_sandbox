@@ -1,21 +1,25 @@
+variable region {
+  default = "tk1v"
+}
+
 variable use_db {
   default = true
 }
 
 variable use_loadbalanser {
-  default = true
+  default = false
 }
 
 variable use_cache {
-  default = true
+  default = false
 }
 
 variable use_manage {
-  default = true
+  default = false
 }
 
 variable use_backdoor {
-  default = true
+  default = false
 }
 
 variable web_count {
@@ -82,12 +86,12 @@ variable cache_capacity {
   default = 20
 }
 
-data sakuracloud_archive "main" {
-  os_type = "debian"
+provider sakuracloud {
+  zone = "${var.region}"
 }
 
-data sakuracloud_archive "sub" {
-  os_type = "centos"
+data sakuracloud_archive "main" {
+  os_type = "debian"
 }
 
 data sakuracloud_archive "backdoor" {
