@@ -1,0 +1,29 @@
+{
+  "variables": {
+    "sakura_token": "{{env `SAKURACLOUD_ACCESS_TOKEN`}}",
+    "sakura_token_secret": "{{env `SAKURACLOUD_ACCESS_TOKEN_SECRET`}}",
+    "sakura_zone": "{{env `SAKURACLOUD_ZONE`}}"
+  },
+  "builders": [
+    {
+      "type": "sakuracloud",
+      "access_token": "{{user `sakura_token`}}",
+      "access_token_secret": "{{user `sakura_token_secret`}}",
+      "zone": "{{user `sakura_zone`}}",
+      "archive_name": "centos7",
+      "os_type": "iso",
+      "iso_id": "112900062307",
+      "boot_wait": "5s",
+      "boot_command": [
+        "<tab> text ks^http<leftShiftOn>;<leftShiftOff>//wate.github.io/installer/centos/7/kickstart.cfg<enter><wait>"
+      ]
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "ansible",
+      "user": "root",
+      "playbook_file": "../provision/base_image.yml"
+    }
+  ]
+}
