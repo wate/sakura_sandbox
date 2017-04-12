@@ -14,7 +14,7 @@ resource sakuracloud_disk "database_storage" {
 }
 
 resource sakuracloud_server "database" {
-  name   = "batabase-${count.index + 1}"
+  name   = "database-${count.index + 1}"
   count  = "${var.use_db ? var.db_count : 0}"
   core   = "${var.db_cpu}"
   memory = "${var.db_memory}"
