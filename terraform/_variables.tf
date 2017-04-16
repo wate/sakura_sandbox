@@ -86,6 +86,14 @@ variable cache_capacity {
   default = 20
 }
 
+variable router_nw_mask_len {
+  default = 28
+}
+
+variable router_band_width {
+  default = 100
+}
+
 provider sakuracloud {
   zone = "${var.region}"
 }
@@ -93,9 +101,13 @@ provider sakuracloud {
 data sakuracloud_archive "main" {
   os_type = "debian"
 }
+
+/*
 data sakuracloud_archive "sub" {
   os_type = "centos"
 }
+*/
+
 data sakuracloud_archive "backdoor" {
   os_type = "vyos"
 }

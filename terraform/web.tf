@@ -13,7 +13,7 @@ resource sakuracloud_server "web" {
   core                  = "${var.web_cpu}"
   memory                = "${var.web_memory}"
   disks                 = ["${element(sakuracloud_disk.web.*.id, count.index)}"]
-  base_interface        = "${ ! var.use_loadbalanser ? "shared" : sakuracloud_switch.main.id}"
+  base_interface        = "${ ! var.use_loadbalanser ? sakuracloud_internet.router.switch_id : sakuracloud_switch.main.id}"
   additional_interfaces = ["${var.use_loadbalanser ? "" : sakuracloud_switch.main.id}"]
   tags                  = ["@virtio-net-pci"]
 }
