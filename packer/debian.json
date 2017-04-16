@@ -12,7 +12,6 @@
       "access_token": "{{user `sakura_token`}}",
       "access_token_secret": "{{user `sakura_token_secret`}}",
       "zone": "{{user `sakura_zone`}}",
-      "archive_name": "jessie",
       "os_type": "iso",
       "iso_id": "112900116218",
       "boot_wait": "5s",
@@ -24,14 +23,17 @@
         "domain^example.com <wait>",
         "frontend^noninteractive <wait>",
         "<enter><wait>"
-      ]
+      ],
+      "user_name": "vagrant",
+      "password": "vagrant",
+      "ssh_timeout": "10m",
+      "archive_name": "jessie"
     }
   ],
   "provisioners": [
     {
       "type": "ansible",
-      "user": "root",
-      "playbook_file": "../provision/base_image.yml"
+      "playbook_file": "image.yml"
     }
   ]
 }

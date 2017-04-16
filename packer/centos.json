@@ -16,14 +16,17 @@
       "boot_wait": "5s",
       "boot_command": [
         "<tab> text ks^http<leftShiftOn>;<leftShiftOff>//wate.github.io/installer/centos/7/kickstart.cfg<enter><wait>"
-      ]
+      ],
+      "user_name": "vagrant",
+      "password": "vagrant",
+      "ssh_timeout": "10m",
+      "archive_name": "centos73"
     }
   ],
   "provisioners": [
     {
       "type": "ansible",
-      "user": "root",
-      "playbook_file": "../provision/base_image.yml"
+      "playbook_file": "image.yml"
     }
   ]
 }
