@@ -8,11 +8,11 @@ resource sakuracloud_disk "cache" {
 }
 
 resource sakuracloud_server "cache" {
-  name           = "cache-${count.index + 1}"
-  count          = "${var.use_cache ? var.cache_count : 0}"
-  core           = "${var.cache_cpu}"
-  memory         = "${var.cache_memory}"
-  disks          = ["${element(sakuracloud_disk.cache.*.id, count.index)}"]
-  base_interface = "${sakuracloud_switch.main.id}"
-  tags           = ["@virtio-net-pci"]
+  name   = "cache-${count.index + 1}"
+  count  = "${var.use_cache ? var.cache_count : 0}"
+  core   = "${var.cache_cpu}"
+  memory = "${var.cache_memory}"
+  disks  = ["${element(sakuracloud_disk.cache.*.id, count.index)}"]
+  nic    = "${sakuracloud_switch.main.id}"
+  tags   = ["@virtio-net-pci"]
 }

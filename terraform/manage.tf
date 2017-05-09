@@ -8,11 +8,11 @@ resource sakuracloud_disk "manage" {
 }
 
 resource sakuracloud_server "manage" {
-  name           = "manage"
-  count          = "${var.use_manage ? 1 : 0}"
-  core           = "${var.manage_cpu}"
-  memory         = "${var.manage_memory}"
-  disks          = ["${sakuracloud_disk.manage.id}"]
-  base_interface = "${sakuracloud_switch.main.id}"
-  tags           = ["@virtio-net-pci"]
+  name   = "manage"
+  count  = "${var.use_manage ? 1 : 0}"
+  core   = "${var.manage_cpu}"
+  memory = "${var.manage_memory}"
+  disks  = ["${sakuracloud_disk.manage.id}"]
+  nic    = "${sakuracloud_switch.main.id}"
+  tags   = ["@virtio-net-pci"]
 }

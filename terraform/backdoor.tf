@@ -7,9 +7,9 @@ resource sakuracloud_disk "backdoor" {
 }
 
 resource sakuracloud_server "backdoor" {
-  name                  = "backdoor"
-  count                 = "${var.use_backdoor ? 1 : 0}"
-  disks                 = ["${sakuracloud_disk.backdoor.id}"]
-  additional_interfaces = ["${sakuracloud_switch.main.id}"]
-  tags                  = ["@virtio-net-pci"]
+  name            = "backdoor"
+  count           = "${var.use_backdoor ? 1 : 0}"
+  disks           = ["${sakuracloud_disk.backdoor.id}"]
+  additional_nics = ["${sakuracloud_switch.main.id}"]
+  tags            = ["@virtio-net-pci"]
 }

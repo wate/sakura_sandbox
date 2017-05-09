@@ -24,7 +24,7 @@ variable use_db {
  * ロードバランサーを利用するか否か
  */
 variable use_loadbalanser {
-  default = false
+  default = true
 }
 
 /**

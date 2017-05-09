@@ -24,6 +24,6 @@ resource sakuracloud_server "database" {
     "${element(sakuracloud_disk.database_storage.*.id, count.index)}",
   ]
 
-  base_interface = "${sakuracloud_switch.main.id}"
-  tags           = ["@virtio-net-pci"]
+  nic  = "${sakuracloud_switch.main.id}"
+  tags = ["@virtio-net-pci"]
 }
