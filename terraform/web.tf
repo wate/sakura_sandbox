@@ -1,3 +1,31 @@
+/**
+ * Webサーバーの台数
+ */
+variable web_count {
+  default = 1
+}
+
+/**
+ * Webサーバーの仮想コア数
+ */
+variable web_cpu {
+  default = 1
+}
+
+/**
+ * Webサーバーのメモリ
+ */
+variable web_memory {
+  default = 1
+}
+
+/**
+ * Webサーバーのストレージサイズ
+ */
+variable web_capacity {
+  default = 20
+}
+
 resource sakuracloud_disk "web" {
   name              = "web-${count.index + 1}"
   count             = "${var.web_count}"

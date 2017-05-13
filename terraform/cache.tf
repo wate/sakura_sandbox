@@ -1,3 +1,32 @@
+/**
+ * キャッシュサーバーの台数
+ */
+variable cache_count {
+  default = 1
+}
+
+/**
+ * キャッシュサーバーの仮想コア数
+ */
+variable cache_cpu {
+  default = 1
+}
+
+/**
+ * キャッシュサーバーのメモリ
+ */
+variable cache_memory {
+  default = 4
+}
+
+/**
+ * キャッシュサーバーのストレージサイズ
+ */
+
+variable cache_capacity {
+  default = 20
+}
+
 resource sakuracloud_disk "cache" {
   name              = "cache-${count.index + 1}"
   count             = "${var.use_cache ? var.cache_count : 0}"

@@ -1,3 +1,24 @@
+/**
+ * ロードバランサーの台数
+ */
+variable loadbalanser_count {
+  default = 1
+}
+
+/**
+* ロードバランサーの仮想コア数
+*/
+variable loadbalanser_cpu {
+  default = 1
+}
+
+/**
+* ロードバランサーのメモリ
+*/
+variable loadbalanser_memory {
+  default = 1
+}
+
 resource sakuracloud_disk "loadbalanser" {
   name              = "loadbalanser-${count.index + 1}"
   count             = "${var.use_loadbalanser ? var.loadbalanser_count : 0}"

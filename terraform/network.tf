@@ -1,7 +1,7 @@
 resource sakuracloud_internet "router" {
   name        = "router"
-  band_width  = "${var.router_band_width}"
-  nw_mask_len = "${var.router_nw_mask_len}"
+  band_width  = 100
+  nw_mask_len = 28
 }
 
 resource sakuracloud_switch "main" {

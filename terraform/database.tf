@@ -1,3 +1,38 @@
+/**
+ * データベースサーバーの台数
+ */
+variable db_count {
+  default = 1
+}
+
+/**
+ * データベースサーバーの仮想コア数
+ */
+variable db_cpu {
+  default = 3
+}
+
+/**
+ * データベースサーバーのメモリ
+ */
+variable db_memory {
+  default = 12
+}
+
+/**
+ * データベースサーバーのストレージサイズ(ROOTボリューム)
+ */
+variable db_capacity {
+  default = 20
+}
+
+/**
+ * データベースサーバーのサイズ(DATAボリューム)
+ */
+variable db_storage_capacity {
+  default = 100
+}
+
 resource sakuracloud_disk "database" {
   name              = "database-${count.index + 1}"
   count             = "${var.use_db ? var.db_count : 0}"
