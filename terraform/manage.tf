@@ -35,6 +35,6 @@ resource sakuracloud_server "manage" {
   core   = "${var.manage_cpu}"
   memory = "${var.manage_memory}"
   disks  = ["${sakuracloud_disk.manage.id}"]
-  nic    = "${sakuracloud_switch.main.id}"
+  additional_nics = ["${sakuracloud_switch.main.id}"]
   tags   = ["@virtio-net-pci"]
 }

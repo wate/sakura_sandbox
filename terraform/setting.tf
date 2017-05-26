@@ -31,21 +31,21 @@ variable use_loadbalanser {
  * キャッシュサーバーを利用するか否か
  */
 variable use_cache {
-  default = false
+  default = true
 }
 
 /**
  * 管理サーバーを利用するか否か
  */
 variable use_manage {
-  default = false
+  default = true
 }
 
 /**
  * VPNを利用するか否か
  */
 variable use_backdoor {
-  default = false
+  default = true
 }
 
 provider sakuracloud {
