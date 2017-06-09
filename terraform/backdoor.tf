@@ -13,3 +13,7 @@ resource sakuracloud_server "backdoor" {
   additional_nics = ["${sakuracloud_switch.main.id}"]
   tags            = ["@virtio-net-pci"]
 }
+
+output backdoor_ipaddress {
+  value = "${sakuracloud_server.backdoor.ipaddress}"
+}

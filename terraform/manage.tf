@@ -38,3 +38,7 @@ resource sakuracloud_server "manage" {
   additional_nics = ["${sakuracloud_switch.main.id}"]
   tags            = ["@virtio-net-pci"]
 }
+
+output manage_ipaddress {
+  value = "${sakuracloud_server.manage.ipaddress}"
+}

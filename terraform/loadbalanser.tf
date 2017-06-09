@@ -40,3 +40,7 @@ resource sakuracloud_server "loadbalanser" {
   additional_nics = ["${sakuracloud_switch.main.id}"]
   tags            = ["@virtio-net-pci"]
 }
+
+output loadbalanser_ipaddresses {
+  value = "${sakuracloud_server.loadbalanser.*.ipaddress}"
+}
