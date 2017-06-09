@@ -32,7 +32,7 @@ variable cache_capacity {
  */
 
 variable cache_private_iprange_offset {
-  default = 200
+  default = 150
 }
 
 resource sakuracloud_disk "cache" {
