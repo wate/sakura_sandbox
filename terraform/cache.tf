@@ -2,7 +2,7 @@
  * キャッシュサーバーの台数
  */
 variable cache_count {
-  default = 1
+  default = 2
 }
 
 /**

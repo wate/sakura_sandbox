@@ -2,7 +2,7 @@
  * ロードバランサーの台数
  */
 variable loadbalanser_count {
-  default = 1
+  default = 2
 }
 
 /**
