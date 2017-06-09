@@ -47,6 +47,12 @@ variable use_manage {
 variable use_backdoor {
   default = true
 }
+/**
+ * プライベートIPアドレスの範囲
+ */
+variable private_iprange {
+  default = "192.168.1.0/24"
+}
 
 provider sakuracloud {
   zone = "${var.region}"

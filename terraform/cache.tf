@@ -26,6 +26,13 @@ variable cache_memory {
 variable cache_capacity {
   default = 20
 }
+/**
+ * キャッシュサーバーのプライベートIPアドレス開始位置
+ */
+
+variable cache_private_iprange_offset {
+  default = 200
+}
 
 resource sakuracloud_disk "cache" {
   name              = "cache-${count.index + 1}"
@@ -43,5 +50,12 @@ resource sakuracloud_server "cache" {
   memory = "${var.cache_memory}"
   disks  = ["${element(sakuracloud_disk.cache.*.id, count.index)}"]
   nic    = "${sakuracloud_switch.main.id}"
+  ipaddress       = "${cidrhost(var.private_iprange, var.cache_private_iprange_offset + count.index)}"
+  nw_mask_len     = "${element(split("/", var.private_iprange), 1)}"
+  gateway = "${cidrhost(var.private_iprange, 1)}"
   tags   = ["@virtio-net-pci"]
+}
+
+output cache_ipaddresses {
+  value = "${sakuracloud_server.cache.*.ipaddress}"
 }
