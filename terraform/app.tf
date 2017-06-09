@@ -25,6 +25,7 @@ variable app_memory {
 variable app_capacity {
   default = 20
 }
+
 /**
  * アプリケーションサーバーのプライベートIPアドレス開始位置
  */

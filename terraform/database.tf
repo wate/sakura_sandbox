@@ -32,6 +32,7 @@ variable db_capacity {
 variable db_storage_capacity {
   default = 100
 }
+
 /**
  * データベースサーバーのプライベートIPアドレス開始位置
  */
@@ -59,15 +60,17 @@ resource sakuracloud_server "database" {
   count  = "${var.use_db ? var.db_count : 0}"
   core   = "${var.db_cpu}"
   memory = "${var.db_memory}"
+
   disks = [
     "${element(sakuracloud_disk.database.*.id, count.index)}",
     "${element(sakuracloud_disk.database_storage.*.id, count.index)}",
   ]
-  nic  = "${sakuracloud_switch.main.id}"
-  ipaddress       = "${cidrhost(var.private_iprange, var.db_private_iprange_offset + count.index)}"
-  nw_mask_len     = "${element(split("/", var.private_iprange), 1)}"
-  gateway = "${cidrhost(var.private_iprange, 1)}"
-  tags = ["@virtio-net-pci"]
+
+  nic         = "${sakuracloud_switch.main.id}"
+  ipaddress   = "${cidrhost(var.private_iprange, var.db_private_iprange_offset + count.index)}"
+  nw_mask_len = "${element(split("/", var.private_iprange), 1)}"
+  gateway     = "${cidrhost(var.private_iprange, 1)}"
+  tags        = ["@virtio-net-pci"]
 }
 
 output database_ipaddresses {

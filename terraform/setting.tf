@@ -47,6 +47,7 @@ variable use_manage {
 variable use_backdoor {
   default = true
 }
+
 /**
  * プライベートIPアドレスの範囲
  */
