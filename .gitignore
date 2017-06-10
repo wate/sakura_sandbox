@@ -1,0 +1,20 @@
+
+# Created by https://www.gitignore.io/api/terraform
+
+### Packer ###
+# Cache objects
+packer_cache/
+
+# For built boxes
+*.box
+
+### Terraform ###
+# Compiled files
+*.tfstate
+*.tfstate.backup
+
+# Module directory
+.terraform/
+
+### Vagrant ###
+.vagrant/
