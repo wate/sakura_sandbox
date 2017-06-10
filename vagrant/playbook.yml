@@ -1,0 +1,6 @@
+- name: VyOS
+  hosts: default
+  tasks:
+    - name: Display debug massage
+      debug:
+        msg: "provision"
