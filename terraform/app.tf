@@ -2,7 +2,7 @@
  * アプリケーションサーバーの台数
  */
 variable app_count {
-  default = 2
+  default = 4
 }
 
 /**

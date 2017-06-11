@@ -2,7 +2,7 @@
  * データベースサーバーの台数
  */
 variable db_count {
-  default = 1
+  default = 3
 }
 
 /**
