@@ -28,6 +28,10 @@ resource sakuracloud_disk "manage" {
   ssh_key_ids       = ["${data.sakuracloud_ssh_key.main.id}"]
   disable_pw_auth   = true
 
+  note_ids = [
+    "${sakuracloud_note.usacloud.id}",
+  ]
+
   tags = [
     "backup_week_sat",
     "backup_hour_20",
