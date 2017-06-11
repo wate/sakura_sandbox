@@ -60,7 +60,6 @@ resource sakuracloud_disk "database_storage" {
   size  = "${var.db_storage_capacity}"
 
   tags = [
-    "@virtio-net-pci",
     "backup_hour_3",
   ]
 }

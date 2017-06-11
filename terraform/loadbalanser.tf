@@ -27,7 +27,6 @@ resource sakuracloud_disk "loadbalanser" {
   disable_pw_auth   = true
 
   tags = [
-    "@virtio-net-pci",
     "backup_hour_2",
   ]
 }

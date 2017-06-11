@@ -6,7 +6,6 @@ resource sakuracloud_disk "backdoor" {
   disable_pw_auth   = true
 
   tags = [
-    "@virtio-net-pci",
     "backup_week_sun",
     "backup_hour_6",
   ]

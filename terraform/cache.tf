@@ -44,7 +44,6 @@ resource sakuracloud_disk "cache" {
   disable_pw_auth   = true
 
   tags = [
-    "@virtio-net-pci",
     "backup_hour_4",
   ]
 }
