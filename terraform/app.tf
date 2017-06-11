@@ -40,6 +40,11 @@ resource sakuracloud_disk "app" {
   source_archive_id = "${data.sakuracloud_archive.main.id}"
   ssh_key_ids       = ["${data.sakuracloud_ssh_key.main.id}"]
   disable_pw_auth   = true
+
+  tags = [
+    "@virtio-net-pci",
+    "backup_hour_2",
+  ]
 }
 
 resource sakuracloud_server "app" {
