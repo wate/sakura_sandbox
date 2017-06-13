@@ -7,7 +7,7 @@ resource sakuracloud_disk "backdoor" {
 
   tags = [
     "backup_week_sun",
-    "backup_hour_6",
+    "backup_hour_0",
   ]
 }
 

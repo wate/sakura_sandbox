@@ -27,7 +27,7 @@ resource sakuracloud_disk "loadbalanser" {
   disable_pw_auth   = true
 
   tags = [
-    "backup_hour_2",
+    "backup_hour_1",
   ]
 }
 
