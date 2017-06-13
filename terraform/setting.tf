@@ -59,6 +59,13 @@ provider sakuracloud {
   zone = "${var.region}"
 }
 
+# データソースを利用し各種情報を取得
+#
+# データソース(Data Resource)とは、読み取り専用のリソースです。
+# すでにさくらのクラウド上に存在するリソースの値を参照するために用います。
+#
+# 詳細は以下の公式ドキュメントを参照してね
+# http://sacloud.github.io/terraform-provider-sakuracloud/configuration/resources/data_resource/
 data sakuracloud_archive "main" {
   os_type = "debian"
 }
@@ -70,11 +77,7 @@ data sakuracloud_archive "sub" {
 data sakuracloud_archive "backdoor" {
   os_type = "vyos"
 }
-# さくらのクラウドに登録済みの「dummy」という公開鍵を検索し情報を取得する
-#
-# データソース(Data Resource)とは、読み取り専用のリソースです。
-# すでにさくらのクラウド上に存在するリソースの値を参照するために用います。
-# http://sacloud.github.io/terraform-provider-sakuracloud/configuration/resources/data_resource/
+# さくらのクラウドに登録済みの「dummy」という公開鍵を検索し情報を取得
 data sakuracloud_ssh_key "main" {
   filter = {
     name   = "Name"
