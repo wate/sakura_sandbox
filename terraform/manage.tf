@@ -33,8 +33,7 @@ resource sakuracloud_disk "manage" {
   ]
 
   tags = [
-    "backup_week_sat",
-    "backup_hour_23",
+    "backup_hour_sat_23",
   ]
 }
 

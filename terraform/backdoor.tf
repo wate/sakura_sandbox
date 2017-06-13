@@ -6,8 +6,7 @@ resource sakuracloud_disk "backdoor" {
   disable_pw_auth   = true
 
   tags = [
-    "backup_week_sun",
-    "backup_hour_0",
+    "backup_week_web_0",
   ]
 }
 
