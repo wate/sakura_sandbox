@@ -71,9 +71,23 @@ data sakuracloud_archive "backdoor" {
   os_type = "vyos"
 }
 
+# データソース(Data Resource)とは、読み取り専用のリソースです。
+# すでにさくらのクラウド上に存在するリソースの値を参照するために用います。
+# http://sacloud.github.io/terraform-provider-sakuracloud/configuration/resources/data_resource/
 data sakuracloud_ssh_key "main" {
   filter = {
     name   = "Name"
-    values = ["dummy"]
+    values = [
+      "dummy"
+    ]
   }
 }
+# 「dummy」という名前で公開鍵を登録/更新する場合は、
+# ↑のデータソース部分をコメントアウトなどで無効化し、
+# 以下のコードを有効にしてね
+/*
+resource sakuracloud_ssh_key "main" {
+  name = "dummy"
+  public_key = "${file("/path/to/id_rsa.pub")}"
+}
+*/
