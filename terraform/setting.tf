@@ -70,7 +70,8 @@ data sakuracloud_archive "sub" {
 data sakuracloud_archive "backdoor" {
   os_type = "vyos"
 }
-
+# さくらのクラウドに登録済みの「dummy」という公開鍵を検索し情報を取得する
+#
 # データソース(Data Resource)とは、読み取り専用のリソースです。
 # すでにさくらのクラウド上に存在するリソースの値を参照するために用います。
 # http://sacloud.github.io/terraform-provider-sakuracloud/configuration/resources/data_resource/
@@ -82,9 +83,9 @@ data sakuracloud_ssh_key "main" {
     ]
   }
 }
-# 「dummy」という名前で公開鍵を登録/更新する場合は、
-# ↑のデータソース部分をコメントアウトなどで無効化し、
-# 以下のコードを有効にしてね
+
+# 新たに「dummy」という名前で公開鍵を登録する場合は、
+# ↑のデータソース部分のコードをコメントアウトなどで無効化し、以下のコードを有効にしてね
 /*
 resource sakuracloud_ssh_key "main" {
   name = "dummy"
