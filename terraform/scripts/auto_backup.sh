@@ -15,7 +15,7 @@ for DISK_ID in `usacloud disk list --quiet --tags ${WEEKLY_TAG}`; do
 	ARCHIVE_SUFFIX=`date +"%Y%m%d_%H%M%S"`
 	usacloud archive create --assumeyes --quiet --source-disk-id ${DISK_ID} --name "${ARCHIVE_PREFIX}_${ARCHIVE_SUFFIX}"
 	# for REMOVE_ARCHIVE_ID in `usacloud archive list --quiet --source-disk-id ${DISK_ID} --offset ${NUMBRE_OF_GENERATUINS}`; do
-	# 	usacloud archive --assumeyes --quiet ${REMOVE_ARCHIVE_ID}
+	# 	usacloud archive delete --assumeyes --quiet ${REMOVE_ARCHIVE_ID}
 	# done;
 done;
 
@@ -27,6 +27,6 @@ for DISK_ID in `usacloud disk list --quiet --tags ${HOURLY_TAG}`; do
 	ARCHIVE_SUFFIX=`date +"%Y%m%d_%H%M%S"`
 	usacloud archive create --assumeyes --quiet --source-disk-id ${DISK_ID} --name "${ARCHIVE_PREFIX}_${ARCHIVE_SUFFIX}"
 	# for REMOVE_ARCHIVE_ID in `usacloud archive list --quiet --source-disk-id ${DISK_ID} --offset ${NUMBRE_OF_GENERATUINS}`; do
-	# 	usacloud archive --assumeyes --quiet ${REMOVE_ARCHIVE_ID}
+	# 	usacloud archive delete --assumeyes --quiet ${REMOVE_ARCHIVE_ID}
 	# done;
 done;
