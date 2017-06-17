@@ -1,0 +1,10 @@
+- hosts: localhost
+  become: true
+  roles:
+    - dev-sec.os-hardening
+    - dev-sec.ssh-hardening
+  vars:
+    ssh_print_motd: yes
+    ssh_use_pam: no
+    sftp_enabled: no
+  tasks:
