@@ -22,7 +22,7 @@ variable loadbalanser_memory {
 resource sakuracloud_disk "loadbalanser" {
   name              = "loadbalanser-${count.index + 1}"
   count             = "${var.use_loadbalanser ? var.loadbalanser_count : 0}"
-  source_archive_id = "${data.sakuracloud_archive.main.id}"
+  source_archive_id = "${data.sakuracloud_archive.debian.id}"
   ssh_key_ids       = ["${data.sakuracloud_ssh_key.main.id}"]
   disable_pw_auth   = true
 

@@ -66,15 +66,13 @@ provider sakuracloud {
 #
 # 詳細は以下の公式ドキュメントを参照してね
 # http://sacloud.github.io/terraform-provider-sakuracloud/configuration/resources/data_resource/
-data sakuracloud_archive "main" {
+data sakuracloud_archive "debian" {
   os_type = "debian"
 }
-
-data sakuracloud_archive "sub" {
+data sakuracloud_archive "centos" {
   os_type = "centos"
 }
-
-data sakuracloud_archive "backdoor" {
+data sakuracloud_archive "vyos" {
   os_type = "vyos"
 }
 # さくらのクラウドに登録済みの「dummy」という公開鍵を検索し情報を取得

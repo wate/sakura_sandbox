@@ -39,7 +39,7 @@ resource sakuracloud_disk "cache" {
   name              = "cache-${count.index + 1}"
   count             = "${var.use_cache ? var.cache_count : 0}"
   size              = "${var.cache_capacity}"
-  source_archive_id = "${data.sakuracloud_archive.main.id}"
+  source_archive_id = "${data.sakuracloud_archive.debian.id}"
   ssh_key_ids       = ["${data.sakuracloud_ssh_key.main.id}"]
   disable_pw_auth   = true
 

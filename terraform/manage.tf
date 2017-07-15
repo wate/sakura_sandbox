@@ -24,7 +24,7 @@ resource sakuracloud_disk "manage" {
   name              = "manage"
   count             = "${var.use_manage ? 1 : 0}"
   size              = "${var.manage_capacity}"
-  source_archive_id = "${data.sakuracloud_archive.main.id}"
+  source_archive_id = "${data.sakuracloud_archive.debian.id}"
   ssh_key_ids       = ["${data.sakuracloud_ssh_key.main.id}"]
   disable_pw_auth   = true
 

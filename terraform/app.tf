@@ -37,7 +37,7 @@ resource sakuracloud_disk "app" {
   name              = "app-${count.index + 1}"
   count             = "${var.app_count}"
   size              = "${var.app_capacity}"
-  source_archive_id = "${data.sakuracloud_archive.main.id}"
+  source_archive_id = "${data.sakuracloud_archive.debian.id}"
   ssh_key_ids       = ["${data.sakuracloud_ssh_key.main.id}"]
   disable_pw_auth   = true
 
