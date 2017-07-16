@@ -69,18 +69,22 @@ provider sakuracloud {
 data sakuracloud_archive "debian" {
   os_type = "debian"
 }
+
 data sakuracloud_archive "centos" {
   os_type = "centos"
 }
+
 data sakuracloud_archive "vyos" {
   os_type = "vyos"
 }
+
 # さくらのクラウドに登録済みの「dummy」という公開鍵を検索し情報を取得
 data sakuracloud_ssh_key "main" {
   filter = {
-    name   = "Name"
+    name = "Name"
+
     values = [
-      "dummy"
+      "dummy",
     ]
   }
 }
@@ -93,3 +97,4 @@ resource sakuracloud_ssh_key "main" {
   public_key = "${file("/path/to/id_rsa.pub")}"
 }
 */
+
