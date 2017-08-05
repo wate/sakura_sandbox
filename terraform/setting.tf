@@ -99,4 +99,3 @@ resource sakuracloud_ssh_key "main" {
   public_key = "${file("/path/to/id_rsa.pub")}"
 }
 */
-
