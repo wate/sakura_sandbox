@@ -90,7 +90,9 @@ data sakuracloud_ssh_key "main" {
 }
 
 # 新たに「dummy」という名前で公開鍵を登録する場合は、
-# ↑のデータソース部分のコードをコメントアウトなどで無効化し、以下のコードを有効にしてね
+# ↑のデータソース部分のコードをコメントアウトなどで無効化し以下のコードを有効して、
+# 他のファイルの「${data.sakuracloud_ssh_key.main.id}」って書いてあるところを、
+# 「${sakuracloud_ssh_key.main.id}」に変更してね
 /*
 resource sakuracloud_ssh_key "main" {
   name = "dummy"
