@@ -99,3 +99,12 @@ resource sakuracloud_ssh_key "main" {
   public_key = "${file("/path/to/id_rsa.pub")}"
 }
 */
+
+data sakuracloud_dns "my_domain" {
+  filter = {
+    name = "zone"
+    values = [
+      "example.com",
+    ]
+  }
+}
