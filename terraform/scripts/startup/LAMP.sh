@@ -30,7 +30,7 @@ systemctl start firewalld.service || exit 1
 systemctl enable firewalld.service || exit 1
 
 if [ ! -e /etc/yum.repos.d/epel.repo ]; then
-    yum -y install epel-release || exit 1
+  yum -y install epel-release || exit 1
 fi
 
 yum install -y --enablerepo=epel etckeeper tig bash-completion || exit 1
