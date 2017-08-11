@@ -103,6 +103,7 @@ resource sakuracloud_ssh_key "main" {
 data sakuracloud_dns "my_domain" {
   filter = {
     name = "zone"
+
     values = [
       "example.com",
     ]

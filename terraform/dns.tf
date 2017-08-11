@@ -7,3 +7,4 @@
 #   type   = "A"
 #   value  = "${sakuracloud_server.xxxxxxx.ipaddress}"
 # }
+
