@@ -3,39 +3,33 @@
     "sakura_token": "{{env `SAKURACLOUD_ACCESS_TOKEN`}}",
     "sakura_token_secret": "{{env `SAKURACLOUD_ACCESS_TOKEN_SECRET`}}",
     "sakura_zone": "{{env `SAKURACLOUD_ZONE`}}",
-    "debian_version": "8.7.1",
-    "sha1_checksum": "81bc2c68de1e0581d19e4c559be913968cf8bb5a",
-    "user_name":  "sysadmin",
-    "user_password": "sysadminpassW0rd"
+    "user_name": "sys4dmin",
+    "user_password": "sys4dminp4$$W0rd"
   },
-  "builders": [
-    {
-      "type": "sakuracloud",
-      "access_token": "{{user `sakura_token`}}",
-      "access_token_secret": "{{user `sakura_token_secret`}}",
-      "zone": "{{user `sakura_zone`}}",
-      "os_type": "iso",
-      "iso_id": "112900116218",
-      "boot_wait": "5s",
-      "boot_command": [
-        "<esc><wait>",
-        "auto <wait>",
-        "url^http<leftShiftOn>;<leftShiftOff>//tool-s.xyz/debian/8/preseed.cfg <wait>",
-        "hostname^jessie <wait>",
-        "domain^example.com <wait>",
-        "frontend^noninteractive <wait><enter>",
-        "<wait>"
-      ],
-      "user_name": "{{user `user_name`}}",
-      "password": "{{user `user_password`}}",
-      "ssh_timeout": "10m",
-      "archive_name": "jessie"
-    }
-  ],
-  "provisioners": [
-    {
-      "type": "ansible",
-      "playbook_file": "playbook.yml"
-    }
-  ]
+  "builders": [{
+    "type": "sakuracloud",
+    "access_token": "{{user `sakura_token`}}",
+    "access_token_secret": "{{user `sakura_token_secret`}}",
+    "zone": "{{user `sakura_zone`}}",
+    "os_type": "iso",
+    "iso_id": "112900116218",
+    "boot_wait": "5s",
+    "boot_command": [
+      "<esc><wait>",
+      "auto <wait>",
+      "url^http<leftShiftOn>;<leftShiftOff>//tool-s.xyz/debian/8/preseed.cfg <wait>",
+      "hostname^jessie <wait>",
+      "domain^example.com <wait>",
+      "frontend^noninteractive <wait><enter>",
+      "<wait>"
+    ],
+    "user_name": "{{user `user_name`}}",
+    "password": "{{user `user_password`}}",
+    "ssh_timeout": "10m",
+    "archive_name": "jessie"
+  }],
+  "provisioners": [{
+    "type": "ansible",
+    "playbook_file": "playbook.yml"
+  }]
 }
