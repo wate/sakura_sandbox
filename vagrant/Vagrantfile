@@ -2,18 +2,27 @@
 # vi: set ft=ruby :
 
 Vagrant.configure("2") do |config|
-  config.vm.box = "higebu/vyos"
+  config.vm.box = "sakura_cloud"
 
-  config.vm.network :public_network, :bridge => "en0: Wi-Fi (AirPort)"
-  config.vm.synced_folder ".", "/vagrant", disabled: true
   config.vm.provider "virtualbox" do |vb|
-    vb.name = "vyos"
-    vb.memory = "1024"
-    vb.customize ["modifyvm", :id, "--nic3", "intnet"]
-    vb.customize ["modifyvm", :id, "--nictype3", "82540EM"]
-    vb.customize ["modifyvm", :id, "--nicpromisc3", "allow-all"]
+    vb.cpus = 1
+    vb.memory = 1024
   end
-  config.vm.provision "ansible" do |ansible|
-    ansible.playbook = "playbook.yml"
+
+  config.vm.provision "file" do |file|
+    file.source = "server.json"
+    file.destination = "/tmp/server.json"
+  end
+  config.vm.provision "shell", inline: <<-SHELL
+    mkdir -p /root/.sacloud-api/notes
+    mv -f /tmp/server.json /root/.sacloud-api/server.json
+    chown root:root /root/.sacloud-api/server.json
+  SHELL
+  config.vm.provision "shell" do |shell|
+    shell.path = "bootstrap.sh"
+    shell.env = {
+      "SACLOUD_APIKEY_ACCESS_TOKEN" => "YOUR_API_TOKEN",
+      "SACLOUD_APIKEY_ACCESS_TOKEN_SECRET" => "YOUR_API_SECRET"
+    }
   end
 end

@@ -1,0 +1,90 @@
+{
+  "Tags": [
+    "@virtio-net-pci"
+  ],
+  "Interfaces": [{
+    "PacketFilter": null,
+    "Switch": {
+      "UserSubnet": null,
+      "Subnet": {
+        "Internet": {
+          "BandWidthMbps": 100
+        },
+        "DefaultRoute": "[デフォルトゲートウェイのIPアドレス]",
+        "NetworkMaskLen": 24,
+        "NetworkAddress": "[ネットワークアドレス]",
+        "ID": null
+      },
+      "Scope": "shared",
+      "Name": "スイッチ",
+      "ID": "[NICが接続されている先のリソースID]"
+    },
+    "HostName": null,
+    "UserIPAddress": null,
+    "IPAddress": "[NICのIPアドレス]",
+    "MACAddress": "[NICMACアドレス]",
+    "ID": "[NICのリソースID]"
+  }],
+  "Disks": [{
+    "BundleInfo": null,
+    "Storage": {
+      "Class": "iscsi1204",
+      "MountIndex": 2100194006,
+      "ID": 2100194006
+    },
+    "ID": "[ディスクのリソースID]",
+    "Name": "[ディスクの名前]",
+    "Connection": "virtio",
+    "ConnectionOrder": 1,
+    "ReinstallCount": 0,
+    "Availability": "available",
+    "SizeMB": 20480,
+    "Plan": {
+      "ID": 4
+    }
+  }],
+  "Zone": {
+    "Region": {
+      "NameServers": [
+        "[ネームサーバのIP1]",
+        "[ネームサーバのIP2]"
+      ],
+      "Description": "東京",
+      "Name": "東京",
+      "ID": 210
+    },
+    "FTPServer": {
+      "IPAddress": "27.133.143.244",
+      "HostName": "sac-tk1a-ssl.sakura.ad.jp"
+    },
+    "VNCProxy": {
+      "IPAddress": "27.133.143.244",
+      "HostName": "sac-tk1a-ssl.sakura.ad.jp"
+    },
+    "IsDummy": false,
+    "Description": "東京第1ゾーン",
+    "Name": "tk1a",
+    "DisplayOrder": 20021001,
+    "ID": 21001
+  },
+  "ServerPlan": {
+    "ServiceClass": "cloud/plan/1core-1gb",
+    "MemoryMB": 1024,
+    "CPU": 1,
+    "Name": "プラン/1Core-1GB",
+    "ID": 1001
+  },
+  "ID": "[サーバのリソースID]",
+  "Name": "[サーバの名前]",
+  "HostName": "localhost",
+  "Description": "",
+  "Availability": "available",
+  "ServiceClass": "cloud/plan/1core-1gb",
+  "CreatedAt": "2016-05-10T10:52:59+09:00",
+  "Icon": {
+    "Scope": "shared",
+    "Name": "CentOS",
+    "URL": "https://secure.sakura.ad.jp/cloud/zone/tk1a/api/cloud/1.1/icon/112300511981.png",
+    "ID": "112300511981"
+  }
+}
