@@ -4,7 +4,7 @@
 # @sacloud-once
 # @sacloud-desc-begin
 # ここから -->
-# スタートアップスクリプトの説明をここに各
+# スタートアップスクリプトの説明をここに書く
 # <-- ここまで
 # @sacloud-desc-end
 # @sacloud-require-archive distro-centos distro-ver-7
