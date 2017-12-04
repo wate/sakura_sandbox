@@ -54,7 +54,6 @@ resource sakuracloud_server "app" {
   disks           = ["${element(sakuracloud_disk.app.*.id, count.index)}"]
   nic             = "${var.use_loadbalanser ? sakuracloud_switch.main.id : sakuracloud_internet.router.switch_id}"
   additional_nics = ["${var.use_loadbalanser ? "" : sakuracloud_switch.main.id}"]
-  tags            = ["@virtio-net-pci"]
   ipaddress       = "${var.use_loadbalanser ? cidrhost(var.private_iprange, var.app_private_iprange_offset + count.index) : element(sakuracloud_internet.router.ipaddresses, count.index)}"
   nw_mask_len     = "${var.use_loadbalanser ? element(split("/", var.private_iprange), 1) : sakuracloud_internet.router.nw_mask_len}"
   gateway         = "${var.use_loadbalanser ? cidrhost(var.private_iprange, 1) : sakuracloud_internet.router.gateway}"

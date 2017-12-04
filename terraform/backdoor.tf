@@ -15,7 +15,6 @@ resource sakuracloud_server "backdoor" {
   count           = "${var.use_backdoor ? 1 : 0}"
   disks           = ["${sakuracloud_disk.backdoor.id}"]
   additional_nics = ["${sakuracloud_switch.main.id}"]
-  tags            = ["@virtio-net-pci"]
 }
 
 output backdoor_ipaddress {
