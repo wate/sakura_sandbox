@@ -78,7 +78,6 @@ resource sakuracloud_server "database" {
   ipaddress   = "${cidrhost(var.private_iprange, var.db_private_iprange_offset + count.index)}"
   nw_mask_len = "${element(split("/", var.private_iprange), 1)}"
   gateway     = "${cidrhost(var.private_iprange, 1)}"
-  tags        = ["@virtio-net-pci"]
 }
 
 output database_ipaddresses {

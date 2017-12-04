@@ -38,11 +38,10 @@ resource sakuracloud_server "loadbalanser" {
   memory          = "${var.loadbalanser_memory}"
   disks           = ["${element(sakuracloud_disk.loadbalanser.*.id, count.index)}"]
   nic             = "${sakuracloud_internet.router.switch_id}"
-  ipaddress       = "${element(sakuracloud_internet.router.nw_ipaddresses, count.index)}"
+  ipaddress       = "${element(sakuracloud_internet.router.ipaddresses, count.index)}"
   nw_mask_len     = "${sakuracloud_internet.router.nw_mask_len}"
-  gateway         = "${sakuracloud_internet.router.nw_gateway}"
+  gateway         = "${sakuracloud_internet.router.gateway}"
   additional_nics = ["${sakuracloud_switch.main.id}"]
-  tags            = ["@virtio-net-pci"]
 }
 
 output loadbalanser_ipaddresses {

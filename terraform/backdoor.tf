@@ -19,5 +19,5 @@ resource sakuracloud_server "backdoor" {
 }
 
 output backdoor_ipaddress {
-  value = "${sakuracloud_server.backdoor.ipaddress}"
+  value = "${sakuracloud_server.backdoor.*.ipaddress}"
 }

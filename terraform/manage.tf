@@ -44,9 +44,8 @@ resource sakuracloud_server "manage" {
   memory          = "${var.manage_memory}"
   disks           = ["${sakuracloud_disk.manage.id}"]
   additional_nics = ["${sakuracloud_switch.main.id}"]
-  tags            = ["@virtio-net-pci"]
 }
 
 output manage_ipaddress {
-  value = "${sakuracloud_server.manage.ipaddress}"
+  value = "${sakuracloud_server.manage.*.ipaddress}"
 }
