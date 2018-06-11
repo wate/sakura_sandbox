@@ -41,6 +41,10 @@ resource sakuracloud_disk "app" {
   ssh_key_ids       = ["${data.sakuracloud_ssh_key.main.id}"]
   disable_pw_auth   = true
 
+  lifecycle {
+    ignore_changes = ["source_archive_id"]
+  }
+
   tags = [
     "backup_hour_2",
   ]

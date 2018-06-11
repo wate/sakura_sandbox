@@ -28,6 +28,10 @@ resource sakuracloud_disk "manage" {
   ssh_key_ids       = ["${data.sakuracloud_ssh_key.main.id}"]
   disable_pw_auth   = true
 
+  lifecycle {
+    ignore_changes = ["source_archive_id"]
+  }
+
   note_ids = [
     "${sakuracloud_note.usacloud.id}",
   ]
